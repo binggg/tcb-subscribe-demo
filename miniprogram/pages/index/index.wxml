@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 用户 openid -->
+  <view wx:for="{{ lessons }}" class="lesson" wx:key="{{ item.id }}">
+    <image class="“lesson-banner”" src="../../images/banner.png"></image>
+    <view class="lesson-body">
+      <view class="lesson-desc">
+        <text class="lesson-label">课程名称：</text>
+        <text>{{ item.thing2.value }}</text>
+      </view>
+      <view class="lesson-desc">
+        <text class="lesson-label">开课时间：</text>
+        <text>{{ item.date5.value }}</text>
+      </view>
+      <view class="lesson-desc">
+        <text class="lesson-label">讲师：</text>
+        <text>{{ item.phrase4.value }}</text>
+      </view>
+      <view class="lesson-desc">
+        <text class="lesson-label">课程介绍：</text>
+        <text>{{ item.thing3.value }}</text>
+      </view>
+    </view>
+    <button
+      class="btn"
+      data-item="{{ item }}"
+      bindtap="onSubscribe"
+      hover-class="btn-hover"
+    >
+      订阅开课提醒
+    </button>
+  </view>
+</view>

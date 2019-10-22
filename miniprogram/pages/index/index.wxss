@@ -1,0 +1,49 @@
+/**index.wxss**/
+
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 32rpx;
+}
+
+.btn {
+  font-size: 32rpx;
+  color: #007aff;
+  background-color: white;
+  background-size: cover;
+}
+
+.btn-hover{
+  background: #f7f7f7;
+}
+
+.btn::after {
+  border: none;
+}
+
+.lesson {
+  background: white;
+  width: 660rpx;
+  margin: 30rpx;
+  border-radius: 10rpx;
+}
+
+.lesson-body {
+  padding: 0 30rpx;
+}
+
+.lesson-banner {
+  width: 100%;
+  height: 200rpx;
+}
+
+.lesson-desc {
+  margin: 16rpx;
+  width: 100%;
+}
+
+.lesson-label {
+  color: #999;
+}

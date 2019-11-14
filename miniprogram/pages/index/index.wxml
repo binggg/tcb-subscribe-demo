@@ -1,33 +1,45 @@
 <!--index.wxml-->
-<view class="container">
-  <!-- 用户 openid -->
-  <view wx:for="{{ lessons }}" class="lesson" wx:key="{{ item.id }}">
-    <image class="“lesson-banner”" src="../../images/banner.png"></image>
-    <view class="lesson-body">
-      <view class="lesson-desc">
-        <text class="lesson-label">课程名称：</text>
-        <text>{{ item.thing2.value }}</text>
-      </view>
-      <view class="lesson-desc">
-        <text class="lesson-label">开课时间：</text>
-        <text>{{ item.date5.value }}</text>
-      </view>
-      <view class="lesson-desc">
-        <text class="lesson-label">讲师：</text>
-        <text>{{ item.phrase4.value }}</text>
-      </view>
-      <view class="lesson-desc">
-        <text class="lesson-label">课程介绍：</text>
-        <text>{{ item.thing3.value }}</text>
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-panel" wx:for="{{ lessons }}" wx:key="{{ item.id }}">
+      <view class="weui-panel__hd">直播课</view>
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_text">
+          <view class="weui-media-box__title weui-media-box__title_in-text">
+            {{ item.title }}
+          </view>
+          <view class="weui-media-box__desc">{{ item.description }}</view>
+          <view class="weui-media-box__info">
+            <view class="weui-media-box__info__meta">
+              开课时间 {{ item.startTimeString }}</view
+            >
+            <view
+              class="weui-media-box__info__meta weui-media-box__info__meta_extra"
+              >讲师： {{ item.teacher }}</view
+            >
+          </view>
+          <view class="button-sp-area">
+            <button
+              class="weui-btn mini-btn"
+              type="primary"
+              size="mini"
+              data-item="{{ item }}"
+              bindtap="onSubscribe"
+            >
+              订阅开课提醒
+            </button>
+            <button
+              class="weui-btn mini-btn"
+              type="default"
+              size="mini"
+              data-item="{{ item }}"
+              bindtap="onUnsubscribe"
+            >
+              退订
+            </button>
+          </view>
+        </view>
       </view>
     </view>
-    <button
-      class="btn"
-      data-item="{{ item }}"
-      bindtap="onSubscribe"
-      hover-class="btn-hover"
-    >
-      订阅开课提醒
-    </button>
   </view>
 </view>

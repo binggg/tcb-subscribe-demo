@@ -8,10 +8,10 @@ exports.main = async (event, context) => {
     // 从云开数据库中查询等待发送的消息列表
     const messages = await db
       .collection('messages')
-      // 查询条件这里做了简化，只查找了状态为未发送的消息
-      // 在真正的生产环境，可以根据开课日期等条件筛选应该发送哪些消息
       .where({
         done: false,
+        // 开始时间前半小时之内
+        startTime: _.lte(new Date().getTime() + 30 * 60 * 1000),
       })
       .get();
 

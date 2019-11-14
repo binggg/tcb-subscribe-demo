@@ -10,7 +10,7 @@ exports.main = async (event, context) => {
       .collection('messages')
       .where({
         done: false,
-        // 开始时间前半小时之内
+        // 课程开始时间前半小时之内
         startTime: _.lte(new Date().getTime() + 30 * 60 * 1000),
       })
       .get();

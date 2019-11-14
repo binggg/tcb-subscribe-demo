@@ -5,7 +5,7 @@ const lessonTmplId = 'LNzdOCyTK9-9unqtUZPlD-pB2aFTVfBbuxBQ-HyFO7s';
 const formatDate = dateTime => {
   const date = new Date(dateTime);
   return `${date.getFullYear()}-${date.getMonth() +
-    1}-${date.getDay()} ${date.getHours()}:${date.getMinutes()}`;
+    1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
 };
 
 const lessons = [

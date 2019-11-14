@@ -40,75 +40,9 @@ Page({
     lessons,
   },
   onSubscribe: function(e) {
-    // 获取课程信息
-    const item = e.currentTarget.dataset.item;
-
-    // 调用微信 API 申请发送订阅消息
-    wx.requestSubscribeMessage({
-      // 传入订阅消息的模板id，模板 id 可在小程序管理后台申请
-      tmplIds: [lessonTmplId],
-      success(res) {
-        // 申请订阅成功
-        if (res.errMsg === 'requestSubscribeMessage:ok') {
-          // 这里将订阅的课程信息调用云函数存入db
-          wx.cloud
-            .callFunction({
-              name: 'subscribe',
-              data: {
-                ...item,
-                data: {
-                  thing2: {value: item.title},
-                  date5: {value: item.startTimeString},
-                  phrase4: {value: item.teacher},
-                  thing3: {value: item.description},
-                },
-                templateId: lessonTmplId,
-              },
-            })
-            .then(() => {
-              wx.showToast({
-                title: '订阅成功',
-                icon: 'success',
-                duration: 2000,
-              });
-            })
-            .catch(() => {
-              wx.showToast({
-                title: '订阅失败',
-                icon: 'success',
-                duration: 2000,
-              });
-            });
-        }
-      },
-    });
+    // @todo 实现订阅逻辑
   },
   onUnsubscribe: function(e) {
-    // 获取课程信息
-    const item = e.currentTarget.dataset.item;
-
-    // 这里将订阅的课程信息调用云函数存入db
-    wx.cloud
-      .callFunction({
-        name: 'unsubscribe',
-        data: {
-          id: item.id,
-          templateId: lessonTmplId,
-        },
-      })
-      .then(() => {
-        wx.showToast({
-          title: '取消订阅成功',
-          icon: 'success',
-          duration: 2000,
-        });
-      })
-      .catch(() => {
-        wx.showToast({
-          title: '取消订阅失败',
-          icon: 'success',
-          duration: 2000,
-        });
-      });
+    // @todo 实现取消订阅逻辑
   },
 });

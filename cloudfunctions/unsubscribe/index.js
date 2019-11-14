@@ -5,16 +5,7 @@ const db = cloud.database();
 exports.main = async event => {
   try {
     const {OPENID} = cloud.getWXContext();
-    // 删除订阅的消息
-    const result = await db
-      .collection('messages')
-      .where({
-        touser: OPENID,
-        templateId: event.templateId,
-        id: event.id,
-      })
-      .remove();
-    return result;
+    // @todo 删除订阅的消息
   } catch (err) {
     console.log(err);
     return err;

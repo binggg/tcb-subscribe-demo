@@ -3,6 +3,7 @@ const cloud = require('wx-server-sdk');
 exports.main = async (event, context) => {
   cloud.init();
   const db = cloud.database();
+  const _ = db.command;
 
   try {
     // 从云开数据库中查询等待发送的消息列表
